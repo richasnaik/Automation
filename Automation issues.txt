@@ -1,0 +1,13 @@
+java.lang.NoSuchMethodError: org.apache.poi.ss.SpreadsheetVersion.getMaxCellStyles()I
+
+solution:
+ 4
+down vote
+accepted
+	
+
+You appear to have mis-matched jars. From your comment you say you have POI 3.9 .... poi-ooxml-3.5. You must have matching jars, so POI-3.9 and POI-OOXML-3.9. You can't mix and match new and old jars from different parts of the project.
+
+If you need help with working out where your jars are coming from (eg your app framework is bundling old ones), see this POI FAQ entry. To check what the dependencies are of the different parts of Apache POI, see the Components page
+
+You'll either want to update all of your POI jars to 3.9 final, or all of them to 3.10 beta 1 (the latest version as of July 2013)
